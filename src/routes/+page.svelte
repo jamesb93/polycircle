@@ -18,7 +18,8 @@
 
 	const start = async() => {
         context = new (window.AudioContext || window.webkitAudioContext)();
-        createDeviceInstance('/patch.export.json', context, context.destination)
+        let gain = context.createGain().connect(context.destination);
+        createDeviceInstance('/patch.export.json', context, gain)
 		.then(device => {
 			patch = device
 			patch.messageEvent.subscribe(ev => {
