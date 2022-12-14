@@ -1,12 +1,9 @@
  <script>
 	import { onMount } from 'svelte';
-	import { CanvasSpace, Pt } from 'pts';
+	import { CanvasSpace, SVGSpace, Pt } from 'pts';
 	import * as d3 from 'd3';
 
 	let canvas;
-	let ready = false;
-	let pts;
-	let rect;
 
 	const TWOPI = Math.PI * 2;
 	const WIDTH = 600;
@@ -29,7 +26,7 @@
 	onMount(() => {
 		let centre;
 		const mid = new Pt(WIDTH/2, HEIGHT/2)
-		let space = new CanvasSpace('#sketch')
+		let space = new SVGSpace('#sketch')
 		.setup({ bgcolor: '#e2e6ef' });
 
 		let form = space.getForm();
@@ -61,7 +58,9 @@
 	})
 </script>
 
-<canvas id='sketch' bind:this={canvas} />
+<!-- <canvas id='sketch' bind:this={canvas} /> -->
+<svg id='sketch' bind:this={canvas} />
+
 
 <style>
 	#sketch {

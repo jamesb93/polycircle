@@ -1,6 +1,7 @@
 <script>
 	import { createDeviceInstance, sendDeviceMessage } from '@jamesb93/rnbo-svelte'
 	import Interface from '$lib/Interface.svelte';
+	import SVGInterface from '$lib/SVGInterface.svelte';
 	import Ratio from '$lib/Ratio.svelte';
 	import { presets } from '$lib/presets.js';
 	import * as d3 from 'd3';
@@ -75,7 +76,8 @@
 		</div>
 	</div>
 
-	<Interface bind:phases={phasors}/>
+	<!-- <Interface bind:phases={phasors}/> -->
+	<SVGInterface bind:phases={phasors}/>
 </div>
 
 <style>
